@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صدقة عن أصدقاء سيفو - سبحة إلكترونية</title>
+    <style>
+        body {
+            font-family: 'Cairo', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            user-select: none;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 420px;
+            width: 100%;
+        }
+        h2 {
+            color: #f1c40f;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .names-box {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+            border-right: 4px solid #f1c40f;
+        }
+        .zekr-box {
+            font-size: 20px;
+            color: #00cec9;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .counter-display {
+            font-size: 65px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+        }
+        .btn-count {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+            border: none;
+            padding: 22px;
+            font-size: 26px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0, 176, 155, 0.4);
+            transition: 0.1s;
+        }
+        .btn-count:active {
+            transform: scale(0.96);
+        }
+        .footer-note {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>صدقة جارية</h2>
+        <div class="subtitle">صدقة عن أصدقاء سيفو</div>
+        
+        <div class="names-box">
+            اللهم اغفر لهم وارحمهم، وأسكنهم فسيح جناتك، واجعل كل تسبيحة نوراً في قبورهم.
+        </div>
+
+        <div class="zekr-box" id="zekrText">سبحان الله وبحمده، سبحان الله العظيم</div>
+        <div class="counter-display" id="counter">0</div>
+        
+        <button class="btn-count" onclick="increment()">اضغط للتسبيح</button>
+        
+        <div class="footer-note">العداد محفوظ دائماً لكل مستخدم</div>
+    </div>
+
+    <script>
+        let count = localStorage.getItem('sadaqa_seifo_friends_count');
+        if (count === null) {
+            count = 0;
+        } else {
+            count = parseInt(count);
+        }
+
+        const counterDisplay = document.getElementById('counter');
+        counterDisplay.innerText = count;
+
+        function increment() {
+            count++;
+            counterDisplay.innerText = count;
+            localStorage.setItem('sadaqa_seifo_friends_count', count);
+            if (navigator.vibrate) {
+                navigator.vibrate(40);
+            }
+        }
+    </script>
+
+</body>
+</html>
+  
